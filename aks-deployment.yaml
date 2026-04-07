@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sky-builders-deployment
+  labels:
+    app: sky-builders
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sky-builders
+  template:
+    metadata:
+      labels:
+        app: sky-builders
+    spec:
+      containers:
+      - name: sky-builders-container
+        image: c1r1s/sky-builders:v1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: MONGODB_URI
+          # Remember to correctly populate this with your MongoDB Atlas connection string when applying
+          value: "mongodb+srv://ciris:Change100@cluster0.6ak2yre.mongodb.net/sky-builders?appName=Cluster0"
