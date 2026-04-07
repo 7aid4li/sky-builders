@@ -1,16 +1,79 @@
-# React + Vite
+# Sky Builders - Modern Home Construction & Design
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sky Builders is a comprehensive web application for a modern home construction company, featuring dynamic floor plans, property filtering, and a robust cloud-ready architecture.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Dynamic Home Designs**: Browse through various home collections including New Homes, Granny Flats, Modular Homes, Tiny Homes, and many more.
+- **Interactive Filtering**: Filter home designs by price, lot width, bedrooms, and specific design features.
+- **Full-Stack Integration**: Powered by a Node.js/Express backend with MongoDB Atlas for persistent storage.
+- **Modern UI/UX**: Built with React and Vanilla CSS for a premium, high-performance user experience.
+- **Containerized & Scalable**: Fully Dockerized and ready for deployment on Azure Kubernetes Service (AKS).
 
-## React Compiler
+## 🛠️ Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React (Vite), JavaScript, Vanilla CSS
+- **Backend**: Node.js, Express
+- **Database**: MongoDB Atlas
+- **DevOps**: Docker, Kubernetes (AKS)
+- **Design**: Modern, responsive design system
 
-## Expanding the ESLint configuration
+## 💻 Local Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/7aid4li/sky-builders.git
+   cd sky-builders
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+   *Your app will be available at `http://localhost:5173`*
+
+4. **Start the backend server**:
+   ```bash
+   node server.js
+   ```
+   *Ensure you have your `MONGODB_URI` environment variable set.*
+
+## 🐳 Dockerization
+
+Build the Docker image:
+```bash
+docker build -t <your-username>/sky-builders:v1 .
+```
+
+Run the container locally:
+```bash
+docker run -p 3000:3000 -e PORT=3000 -e MONGODB_URI=<your-mongodb-uri> <your-username>/sky-builders:v1
+```
+
+## ☸️ Kubernetes Deployment (AKS)
+
+The application is configured to run on Azure Kubernetes Service.
+
+1. **Apply the deployment**:
+   ```bash
+   kubectl apply -f aks-deployment.yaml
+   ```
+
+2. **Apply the service**:
+   ```bash
+   kubectl apply -f aks-service.yaml
+   ```
+
+3. **Get the external IP**:
+   ```bash
+   kubectl get service sky-builders-service --watch
+   ```
+
+## 📜 License
+
+This project was built as part of a Cloud Computing assignment.
